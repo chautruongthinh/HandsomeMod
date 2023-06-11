@@ -62,4 +62,13 @@ endef
 
 TARGET_DEVICES += Handsome_handsome-openstick-uz801
 
+define Device/Handsome_handsome-openstick-uz801v3
+  $(Device/msm8916)
+  DEVICE_VENDOR := Handsome
+  DEVICE_MODEL := OpenStick UZ801v3
+  DEVICE_PACKAGES := openstick-tweaks wpad-basic-wolfssl kmod-qcom-modem qcom-msm8916-modem-openstick-uz801v3-firmware qcom-msm8916-openstick-uz801v3-wcnss-firmware qcom-msm8916-wcnss-openstick-uz801v3-nv losetup
+endef
+
+TARGET_DEVICES += Handsome_handsome-openstick-uz801v3
+
 endif
