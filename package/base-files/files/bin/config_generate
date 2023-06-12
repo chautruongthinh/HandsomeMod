@@ -301,8 +301,9 @@ generate_static_system() {
 	uci -q batch <<-EOF
 		delete system.@system[0]
 		add system system
-		set system.@system[-1].hostname='HandsomeMod'
-		set system.@system[-1].timezone='UTC'
+		set system.@system[-1].hostname='MobiTech_4G'
+		set system.@system[-1].zonename='Asia/Ho Chi Minh'
+		set system.@system[-1].timezone='<+07>-7'
 		set system.@system[-1].ttylogin='0'
 		set system.@system[-1].log_size='64'
 		set system.@system[-1].urandom_seed='0'
@@ -311,8 +312,8 @@ generate_static_system() {
 		set system.ntp='timeserver'
 		set system.ntp.enabled='1'
 		set system.ntp.enable_server='0'
-		add_list system.ntp.server='time1.aliyun.com'
-		add_list system.ntp.server='cn.pool.ntp.org'
+		add_list system.ntp.server='0.se.pool.ntp.org'
+		add_list system.ntp.server='asia.pool.ntp.org'
 		add_list system.ntp.server='time1.apple.com'
 		add_list system.ntp.server='120.24.166.46'
 	EOF

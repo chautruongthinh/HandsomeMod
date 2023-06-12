@@ -8,7 +8,7 @@
 #include "msm8916-handsome-openstick-common.dtsi"
 
 / {
-	model = "Handsome OpenStick UZ801";
+	model = "MobiTech OpenStick UZ801V3";
 	compatible = "handsome,openstick", "qcom,msm8916";
 
 	gpio-keys {
@@ -44,6 +44,7 @@
 		led_internet: internet {
 			label = "green:internet";
 			gpios = <&msmgpio 8 GPIO_ACTIVE_HIGH>;
+			linux,default-trigger = "phy0link";
 			default-state = "off";
 		};
 
@@ -51,7 +52,7 @@
 			label = "red:os";
 			gpios = <&msmgpio 7 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "heartbeat";
-			default-state = "on";
+			default-state = "off";
 		};
 
 	};

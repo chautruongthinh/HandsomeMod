@@ -198,8 +198,13 @@ define Package/base-files/install
 
 	$(if $(CONFIG_CLEAN_IPKG),, \
 		mkdir -p $(1)/etc/opkg; \
-		$(call FeedSourcesAppend,$(1)/etc/opkg/distfeeds.conf); \
-		$(VERSION_SED_SCRIPT) $(1)/etc/opkg/distfeeds.conf)
+		echo "src/gz handsomemod_core https://downloads.openwrt.org/releases/21.02-SNAPSHOT/targets/armvirt/64/packages" > $(1)/etc/opkg/distfeeds.conf; \
+		echo "src/gz handsomemod_base https://downloads.openwrt.org/releases/21.02-SNAPSHOT/packages/aarch64_cortex-a53/base" >> $(1)/etc/opkg/distfeeds.conf; \
+		echo "src/gz handsomemod_luci https://downloads.openwrt.org/releases/21.02-SNAPSHOT/packages/aarch64_cortex-a53/luci" >> $(1)/etc/opkg/distfeeds.conf; \
+		echo "src/gz handsomemod_packages https://downloads.openwrt.org/releases/21.02-SNAPSHOT/packages/aarch64_cortex-a53/packages" >> $(1)/etc/opkg/distfeeds.conf; \
+		echo "src/gz handsomemod_routing https://downloads.openwrt.org/releases/21.02-SNAPSHOT/packages/aarch64_cortex-a53/routing" >> $(1)/etc/opkg/distfeeds.conf; \
+		echo "src/gz handsomemod_telephony https://downloads.openwrt.org/releases/21.02-SNAPSHOT/packages/aarch64_cortex-a53/telephony" >> $(1)/etc/opkg/distfeeds.conf)
+
 	$(if $(CONFIG_IPK_FILES_CHECKSUMS),, \
 		rm -f $(1)/sbin/pkg_check)
 
